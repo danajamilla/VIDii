@@ -3,6 +3,28 @@
   src: url("../fonts/Barbie-font.woff2") format("woff");
 }
 
+@font-face {
+  font-family: "WorkSans";
+  src: url("../fonts/WorkSans-VariableFont_wght.woff2") format("woff");
+}
+
+
+/*********************/
+/* ROOT */
+/*********************/
+
+:root {
+  --primary: #F09FDE;
+  --secondary:#E6398F;
+  --dark: #6D1B38;
+  --light: #ffddf8;
+
+  --h1-fontsize: 130px;
+  --h2-fontsize: 85px;  
+  --h2-fontsize: 20px;  
+  --body-fontsize: 16px;
+}
+
 
 /**************/
 /* BASICS */
@@ -14,11 +36,11 @@
 
 body {
   margin:0;
-  background-image: url("../images/fairytopia-world.webp");
-  background-repeat: no-repeat;
+  background: url("../images/fairytopia-world.webp") no-repeat center center fixed; 
+  background-size:cover;
 }
 
-body > section:first-of-type {
+section {
   display:grid;
 }
 
@@ -32,30 +54,121 @@ img {
 
 
 
-
-
-/*********************/
-/* ROOT */
-/*********************/
-
-:root {
-  --color-headings:crimson;
-  --h1-fontsize: 85px;
-}
-
-
-
-
-
 /********************/
 /* ALGEMENE STYLING */
 /********************/
-
 h1 {
   font-family: "Barbie", 'sans-serif';
-  color:var(--color-headings);
+  color:var(--secondary);
   font-size:var(--h1-fontsize);
+  margin: 0;
 }
 
+h2 {
+  font-family: "WorkSans", 'sans-serif';
+  font-size: var(--h2-fontsize);
+  color:var(--secondary);
+  margin-top:0;
+}
+
+h3 {
+  font-family: "WorkSans", 'sans-serif';
+  font-size: var(--h3-fontsize);
+  color:var(--secondary);
+  margin-top:0;
+}
+
+p {
+  font-family: "WorkSans", 'sans-serif';
+  font-size: var(--body-fontsize);
+  text-align: left;
+  margin: 0;
+  color:var(--secondary);
+}
+
+ul {
+  list-style: none;
+  text-align: left;
+  padding: 0;
+}
+
+li {
+  font-family: "WorkSans", 'sans-serif';
+  color:var(--secondary);
+  font-size: var(--body-fontsize);
+}
+
+body > div:first-of-type {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  overflow: hidden;
+  height: 100%;
+  padding: 40px;
+}
+
+section:first-of-type {
+  place-items: center;
+  position: relative;
+}
+
+section:nth-of-type(2) {
+  place-items: end;
+}
+
+section:first-of-type > div:first-of-type {
+  background-color: var(--primary);
+  width: 380px;
+  height: 550px;
+}
+
+
+section:first-of-type > div:nth-of-type(2) {
+  background-color: var(--dark);
+  width: 330px;
+  height: 500px;
+  position: absolute;
+}
+
+section:first-of-type > div:last-of-type {
+  background-color: var(--primary);
+  width: 380px;
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+}
+
+section:first-of-type > img:first-of-type {
+  position: absolute;
+  width: 340px;
+  transition: transform 0.5s ease; 
+}
+
+section:first-of-type > img:first-of-type:hover {
+  transform: translateY(-30px); /* -30px = zoveel px omhoog zweven */
+}
+
+section:first-of-type > h1 {
+  transform: skew(-20deg); /* Bron: chatgpt */
+  font-family: "Barbie", 'sans-serif';
+  color:var(--secondary);
+  font-size:var(--h1-fontsize);
+  margin: 0;
+}
+
+section:nth-of-type(2) > div:first-of-type {
+  width: 400px; 
+  height: 300px; 
+  background: var(--light);
+  border-radius: 20px;
+  border:solid 4px rgb(194, 166, 11);
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
 
