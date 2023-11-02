@@ -1,14 +1,25 @@
+@font-face {
+  font-family: "Barbie";
+  src: url("../fonts/Barbie-font.woff2") format("woff");
+}
+
+
 /**************/
-/* CSS REMEDY */
+/* BASICS */
 /**************/
 
-/* naar een idee van Jen Simmons */
 *, *::after, *::before {
   box-sizing:border-box;  
 }
 
 body {
   margin:0;
+  background-image: url("../images/fairytopia-world.webp");
+  background-repeat: no-repeat;
+}
+
+body > section:first-of-type {
+  display:grid;
 }
 
 button:not([disabled]) {
@@ -24,13 +35,12 @@ img {
 
 
 /*********************/
-/* CUSTOM PROPERTIES */
+/* ROOT */
 /*********************/
 
 :root {
-  --color-headings:crimson
-  /* ... */
-
+  --color-headings:crimson;
+  --h1-fontsize: 85px;
 }
 
 
@@ -42,9 +52,10 @@ img {
 /********************/
 
 h1 {
+  font-family: "Barbie", 'sans-serif';
   color:var(--color-headings);
+  font-size:var(--h1-fontsize);
 }
 
-/* ... */
 
 
