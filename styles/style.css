@@ -229,7 +229,7 @@ body > ol > li:nth-of-type(1) {
 }
 
 section:first-of-type:hover > img {
-content: url('/images/barbie-notenkraker-2.png');
+content: url('../images/barbie-nutcracker-2.png');
 }
 
 li:first-of-type > a:first-of-type {
@@ -251,7 +251,7 @@ body > ol > li:nth-of-type(2) {
 }
 
 #slide2 > section:first-of-type:hover > img {
-  content: url('/images/barbie-rapunzel-2.png');
+  content: url('../images/barbie-rapunzel-2.png');
   }
 
 
@@ -271,7 +271,7 @@ body > ol > #slide3 {
 }
 
 #slide3 > section:first-of-type:hover > img {
-  content: url('/images/barbie-princess-pauper-2.png');
+  content: url('../images/barbie-princess-pauper-2.png');
   }
 
 #slide3 > section:nth-of-type(2) > div:first-of-type > img {
@@ -290,7 +290,7 @@ body > ol > #slide4 {
 }
 
 #slide4 > section:first-of-type:hover > img {
-  content: url('/images/barbie-fairytopia-2.png');
+  content: url('../images/barbie-fairytopia-2.png');
   }
 
 #slide4 > section:nth-of-type(2) > img:nth-of-type(2) {
@@ -367,7 +367,7 @@ body > ol > li:nth-of-type(5) {
 }
 
 #slide5 > section:first-of-type:hover > img {
-  content: url('/images/barbie-pegasus-2.png');
+  content: url('../images/barbie-pegasus-2.png');
   width: 350px;
   }
 
@@ -386,7 +386,7 @@ body > ol > li:nth-of-type(6) {
 }
 
 #slide6 > section:first-of-type:hover > img {
-  content: url('/images/barbie-mermaidia-2.png');
+  content: url('../images/barbie-mermaidia-2.png');
   width: 400px;
   }
 
@@ -401,7 +401,7 @@ body > ol > li:nth-of-type(6) {
   }
   
   #slide7 > section:first-of-type:hover > img {
-    content: url('/images/barbie-island-princess-2.png');
+    content: url('../images/barbie-island-princess-2.png');
   }
 
   #slide7 > section:nth-of-type(2) > div:first-of-type > img {
