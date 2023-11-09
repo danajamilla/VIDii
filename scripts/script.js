@@ -142,7 +142,7 @@ var bibble = document.querySelector('.bibble-scream');
 textSection.addEventListener('click', function() {
    fire.classList.add('active');
    bibble.classList.add('active');
-   var audio = new Audio('../audio/scream.mp3');
+   var audio = new Audio('audio/scream.mp3');
    audio.play();
 });
 
@@ -172,13 +172,13 @@ var audio = null;
 var slideIndex = 0;
 
 var audioFiles = [
-   '../audio/nutcracker.mp3',
-   '../audio/rapunzel.mp3',
-   '../audio/princess-pauper.mp3',
-   '../audio/fairytopia.mp3',
-   '../audio/pegasus.mp3',
-   '../audio/mermaidia.mp3',
-   '../audio/island-princess.mp3',
+   'audio/nutcracker.mp3',
+   'audio/rapunzel.mp3',
+   'audio/princess-pauper.mp3',
+   'audio/fairytopia.mp3',
+   'audio/pegasus.mp3',
+   'audio/mermaidia.mp3',
+   'audio/island-princess.mp3',
 ];
 
 // Als er een nieuwe audio is, moet de oude op pauze
@@ -193,7 +193,7 @@ function playAudio(audioSource) {
 
 // Speel notenkraker af bij het openen van de pagina
 window.addEventListener('load', function() {
-  playAudio('../audio/nutcracker.mp3');
+  playAudio('audio/nutcracker.mp3');
 });
 
 // Bron: chatGPT
