@@ -20,6 +20,7 @@
   --h2-fontsize: 85px;  
   --h3-fontsize: 20px;  
   --body-fontsize: 16px;
+  --body-fontsize-small: 14px;
 }
 
 /* BASICS */
@@ -38,8 +39,8 @@ section {
 }
 
 a {
-  width: 3rem;
-  height: auto;
+  max-width: 3rem;
+  max-height: 3rem;
   background: var(--light);
   color: var(--white);
   border: none;
@@ -79,6 +80,12 @@ p {
   color:var(--white);
 }
 
+@media (max-width: 1165px) {
+  p {
+    width: 400px;
+    font-size: var(--body-fontsize-small);
+  }
+}
 
 
 /* LIJST */
@@ -124,8 +131,19 @@ body > ol > li > section:first-of-type > img:hover {
 section:first-of-type {
   place-items: center;
   position: relative;
-  max-width: 600px;
   min-width: 600px;
+}
+
+@media (max-width: 1399px) {
+  section:first-of-type {
+    min-width: 400px;
+  }
+}
+
+@media (max-width: 1168px) {
+  section:first-of-type {
+    min-width: 350px;
+  }
 }
 
 section:first-of-type > div:first-of-type {
@@ -202,6 +220,12 @@ section:nth-of-type(2) {
   max-width: 600px;
   min-width: 600px;
   z-index: 10;
+}
+
+@media (max-width: 1165px) {
+  section:nth-of-type(2) {
+    min-width: 500px;
+  }
 }
 
 section:nth-of-type(2) > div:first-of-type {
