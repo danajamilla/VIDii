@@ -8,11 +8,7 @@
   src: url("../fonts/WorkSans-VariableFont_wght.woff2") format("woff");
 }
 
-
-/*********************/
 /* ROOT */
-/*********************/
-
 :root {
   --primary: #F09FDE;
   --secondary:#E6398F;
@@ -22,15 +18,11 @@
 
   --h1-fontsize: 130px;
   --h2-fontsize: 85px;  
-  --h2-fontsize: 20px;  
+  --h3-fontsize: 20px;  
   --body-fontsize: 16px;
 }
 
-
-/**************/
 /* BASICS */
-/**************/
-
 *, *::after, *::before {
   box-sizing:border-box;  
 }
@@ -38,22 +30,21 @@
 body {
   margin:0;
   height:100vh;
+  overflow:hidden;
 }
 
 section {
   display:grid;
 }
 
-button {
-  width: 4rem;
-  height: 4rem;
-  background: var(--primary);
+a {
+  width: 3rem;
+  height: auto;
+  background: var(--light);
   color: var(--white);
   border: none;
-  padding: 15px;
-  font: inherit;
+  padding: 10px;
   cursor: pointer;
-  outline: inherit;
   border-radius: 50%;
 }
 
@@ -65,11 +56,7 @@ img {
   max-width:100%;
 }
 
-
-
-/********************/
 /* ALGEMENE STYLING */
-/********************/
 h1 {
   font-family: "Barbie", 'sans-serif';
   color:var(--secondary);
@@ -78,50 +65,43 @@ h1 {
 }
 
 h2 {
-  font-family: "WorkSans", 'sans-serif';
+  font-family: "Barbie", 'sans-serif';
   font-size: var(--h2-fontsize);
-  color:var(--secondary);
-  margin-top:0;
-}
-
-h3 {
-  font-family: "WorkSans", 'sans-serif';
-  font-size: var(--h3-fontsize);
-  color:var(--secondary);
-  margin-top:0;
+  color:var(--white);
+  margin:0;
 }
 
 p {
   font-family: "WorkSans", 'sans-serif';
   font-size: var(--body-fontsize);
-  text-align: left;
+  text-align: center;
   margin: 0;
-  color:var(--secondary);
+  color:var(--white);
 }
-
-
 
 
 
 /* LIJST */
 body > ol {
   height: 100%;
-  list-style: none;
-  display: flex;
-  scroll-snap-type: x mandatory;
-  overflow-x: auto;
   margin: 0;
   padding: 0;
+  list-style: none;
+  display: flex;
+  
+  scroll-snap-type: x mandatory;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 /* EEN BARBIE */
 body > ol > li {
   height: 100%;
   width: 100%;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 100px;
   overflow: hidden;
   padding: 40px;
   flex-shrink: 0;
@@ -132,41 +112,46 @@ body > ol > li {
   background-size:cover;
 }
 
-/* de doos  */
+body > ol > li > section:first-of-type > img {
+  transition: transform 0.8s ease; 
+}
+
+body > ol > li > section:first-of-type > img:hover {
+  transform: translateY(-3rem); /* -3rem = zoveel rem omhoog zweven */
+}
+
+/* DE VERPAKKING */
 section:first-of-type {
   place-items: center;
   position: relative;
+  max-width: 600px;
+  min-width: 600px;
 }
 
 section:first-of-type > div:first-of-type {
   background-color: var(--primary);
-  width: 380px;
+  width: 330px;
   height: 550px;
 }
 
 section:first-of-type > div:nth-of-type(2) {
   background-color: var(--dark);
-  width: 330px;
+  width: 280px;
   height: 500px;
   position: absolute;
 }
 
 section:first-of-type > div:last-of-type {
   background-color: var(--primary);
-  width: 380px;
+  width: 330px;
   height: 100px;
   position: absolute;
   bottom: 0;
 }
 
-section:first-of-type > img:first-of-type {
-  position: absolute;
-  width: 340px;
-
-}
-
 section:first-of-type > h1 {
   transform: skew(-20deg); /* Bron: chatgpt */
+  padding: 0 1rem;
   font-family: "Barbie", 'sans-serif';
   color:var(--secondary);
   font-size:var(--h1-fontsize);
@@ -175,66 +160,254 @@ section:first-of-type > h1 {
   bottom: 0;
 }
 
+.shimmer {
+  display: inline-block;
+  color: white;
+  
+  background-image:
+    linear-gradient(to right, transparent, #ffffff99, transparent),
+    linear-gradient(var(--secondary) 0 0);  /* samen met sanne ingevuld */
 
-/* de info */
-section:nth-of-type(2) {
-  /* place-items: end; */
+  background-position: -4rem top, center center;
+  background-repeat: no-repeat;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  -webkit-text-fill-color: transparent;
+
+  animation-name: shimmer;
+  animation-duration: 2.2s;
+  animation-iteration-count: infinite;
+  background-size: 4rem 100%, cover;
 }
 
+@keyframes shimmer {
+  0% {
+    background-position: -4rem top, center center;
+  }
+
+  70% {
+    background-position: 15rem top, center center;
+  }
+
+  100% {
+    background-position: 15rem top, center center;
+  }
+}
+
+/* HET TEKSTVLAK */
+section:nth-of-type(2) {
+  position:relative;
+  max-width: 600px;
+  min-width: 600px;
+  z-index: 10;
+}
 
 section:nth-of-type(2) > div:first-of-type {
-  width: 400px; 
-  height: 300px; 
-  background: var(--light);
-  border-radius: 20px;
-  border:solid 4px rgb(194, 166, 11);
-  
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  align-items:center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-section:nth-of-type(2) ul {
-  list-style: none;
-  text-align: left;
-  padding: 0;
+section:nth-of-type(2) > div > p:first-of-type {
+ margin-bottom:10px !important;
 }
 
-section:nth-of-type(2) ul li {
-  font-family: "WorkSans", 'sans-serif';
-  color:var(--secondary);
-  font-size: var(--body-fontsize);
-}
-
-
-
-
+/* SLIDE 1 */
 body > ol > li:nth-of-type(1) {
   background-image: url("../images/nutcracker-world.png"); 
 }
 
-body > ol > li:nth-of-type(1) section:first-of-type > img:first-of-type {
-  transition: transform 4s ease; 
+#slide1 > section:first-of-type > img {
+  position: absolute;
+  width: 340px;
 }
 
-body > ol > li:nth-of-type(1) section:first-of-type > img:first-of-type:hover {
-  transform: perspective(25em) rotateY(5turn); /* perspectief; uit verhouding getrokken rotate; draaien om de y-as */
+section:first-of-type:hover > img {
+content: url('/images/barbie-notenkraker-2.png');
 }
 
+li:first-of-type > a:first-of-type {
+  visibility: hidden;
+}
 
+#slide1 > section:nth-of-type(2) > div:first-of-type > img {
+  margin-bottom: 20px;
+}
 
-
-
+/* SLIDE 2 */
 body > ol > li:nth-of-type(2) {
+  background-image: url("../images/rapunzel-world.png"); 
+}
+
+#slide2 > section:first-of-type > img {
+  position: absolute;
+  width: 360px;
+}
+
+#slide2 > section:first-of-type:hover > img {
+  content: url('/images/barbie-rapunzel-2.png');
+  }
+
+
+#slide2 > section:nth-of-type(2) > div:first-of-type > img {
+  width: 250px;
+  }
+
+
+/* SLIDE 3 */
+body > ol > #slide3 {
+  background-image: url("../images/princess-pauper-world.png"); 
+}
+
+#slide3 > section:first-of-type > img {
+  position: absolute;
+  width: 380px;
+}
+
+#slide3 > section:first-of-type:hover > img {
+  content: url('/images/barbie-princess-pauper-2.png');
+  }
+
+#slide3 > section:nth-of-type(2) > div:first-of-type > img {
+  width: 200px;
+  }
+
+/* SLIDE 4 */
+
+body > ol > #slide4 {
   background-image: url("../images/fairytopia-world.webp"); 
 }
 
-body > ol > li:nth-of-type(2) section:first-of-type > img:first-of-type {
-  transition: transform 0.8s ease; 
+#slide4 > section:first-of-type > img {
+  position: absolute;
+  width: 360px;
 }
 
-body > ol > li:nth-of-type(2) section:first-of-type > img:first-of-type:hover {
-  transform: translateY(-3rem); /* -3rem = zoveel rem omhoog zweven */
+#slide4 > section:first-of-type:hover > img {
+  content: url('/images/barbie-fairytopia-2.png');
+  }
+
+#slide4 > section:nth-of-type(2) > img:nth-of-type(2) {
+  position: absolute;
+  top:3.375em;
+  right:3em;
+  z-index: -1;
+  width: 70px;
+
+  transition: 1s;
+  transform-origin: 1.5em 1.5em;
+
+  animation: bibble .5s infinite ease-in-out alternate;
 }
+
+@keyframes bibble {
+  0% {
+    top:3.475em;
+  }
+  100% {
+    top:3.175em;
+  }
+}
+
+#slide4 > section:nth-of-type(2):hover > img:nth-of-type(2) {
+  translate:1em -8em; /* code sanne */
+  rotate: 360deg; /* code sanne */
+}
+
+
+#slide4 > section:nth-of-type(2) > div:first-of-type > img {
+  width: 250px;
+  }
+
+#slide4 > section:nth-of-type(2) {
+}
+
+.fire {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 10;
+  transform: translateY(100%);
+  transition-duration: 3s;
+}
+
+.active {
+  transform: translateY(0) !important;
+}
+
+.bibble-scream {
+  position: absolute;
+  left:0;
+  right:0;
+  margin-right: auto;
+  margin-top:auto;
+  height: 100%;
+  z-index: 10;
+
+  transform: translateY(100%);
+  transition-duration: 3s;
+  transition-delay: 1s;
+}
+
+  /* SLIDE 5 */
+body > ol > li:nth-of-type(5) {
+  background-image: url("../images/pegasus-world.png"); 
+}
+
+#slide5 > section:first-of-type > img {
+  position: absolute;
+  width: 440px;
+}
+
+#slide5 > section:first-of-type:hover > img {
+  content: url('/images/barbie-pegasus-2.png');
+  width: 350px;
+  }
+
+  #slide5 > section:nth-of-type(2) > div:first-of-type > img {
+    width: 250px;
+    }
+
+    /* SLIDE 6 */
+body > ol > li:nth-of-type(6) {
+  background-image: url("../images/mermaidia-world.png"); 
+}
+
+#slide6 > section:first-of-type > img {
+  position: absolute;
+  width: 360px;
+}
+
+#slide6 > section:first-of-type:hover > img {
+  content: url('/images/barbie-mermaidia-2.png');
+  width: 400px;
+  }
+
+  /* SLIDE 7 */
+  body > ol > li:nth-of-type(7) {
+    background-image: url("../images/island-princess-world.png"); 
+  }
+  
+  #slide7 > section:first-of-type > img {
+    position: absolute;
+    width: 360px;
+  }
+  
+  #slide7 > section:first-of-type:hover > img {
+    content: url('/images/barbie-island-princess-2.png');
+  }
+
+  #slide7 > section:nth-of-type(2) > div:first-of-type > img {
+    width: 200px;
+    }
+
+    li:last-of-type > a:last-of-type {
+      visibility: hidden;
+    }
