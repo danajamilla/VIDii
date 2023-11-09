@@ -1,14 +1,6 @@
-@font-face {
-  font-family: "Barbie";
-  src: url("../fonts/Barbie-font.woff2") format("woff");
-}
-
-@font-face {
-  font-family: "WorkSans";
-  src: url("../fonts/WorkSans-VariableFont_wght.woff2") format("woff");
-}
-
+/********/
 /* ROOT */
+/********/
 :root {
   --primary: #F09FDE;
   --secondary:#E6398F;
@@ -23,9 +15,21 @@
   --body-fontsize-small: 14px;
 }
 
+/**********/
 /* BASICS */
+/**********/
 *, *::after, *::before {
   box-sizing:border-box;  
+}
+
+@font-face {
+  font-family: "Barbie";
+  src: url("../fonts/Barbie-font.woff2") format("woff");
+}
+
+@font-face {
+  font-family: "WorkSans";
+  src: url("../fonts/WorkSans-VariableFont_wght.woff2") format("woff");
 }
 
 body {
@@ -38,17 +42,6 @@ section {
   display:grid;
 }
 
-a {
-  max-width: 3rem;
-  max-height: 3rem;
-  background: var(--light);
-  color: var(--white);
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 50%;
-}
-
 button:not([disabled]) {
   cursor:pointer;
 }
@@ -57,7 +50,9 @@ img {
   max-width:100%;
 }
 
+/*********************/
 /* ALGEMENE STYLING */
+/*********************/
 h1 {
   font-family: "Barbie", 'sans-serif';
   color:var(--secondary);
@@ -75,20 +70,32 @@ h2 {
 p {
   font-family: "WorkSans", 'sans-serif';
   font-size: var(--body-fontsize);
-  text-align: center;
-  margin: 0;
   color:var(--white);
+  margin: 0;
+  text-align: center;
 }
 
 @media (max-width: 1165px) {
   p {
-    width: 400px;
     font-size: var(--body-fontsize-small);
+    width: 400px;
   }
 }
 
+a {
+  max-width: 3rem;
+  max-height: 3rem;
+  background: var(--light);
+  color: var(--white);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
 
+/**********/
 /* LIJST */
+/**********/
 body > ol {
   height: 100%;
   margin: 0;
@@ -101,7 +108,9 @@ body > ol {
   scroll-behavior: smooth;
 }
 
+/**************/
 /* EEN BARBIE */
+/**************/
 body > ol > li {
   height: 100%;
   width: 100%;
@@ -127,7 +136,9 @@ body > ol > li > section:first-of-type > img:hover {
   transform: translateY(-3rem); /* -3rem = zoveel rem omhoog zweven */
 }
 
+/*****************/
 /* DE VERPAKKING */
+/*****************/
 section:first-of-type {
   place-items: center;
   position: relative;
@@ -178,14 +189,14 @@ section:first-of-type > h1 {
   bottom: 0;
 }
 
+/* Bron: Sanne */
 .shimmer {
   display: inline-block;
   color: white;
   
   background-image:
     linear-gradient(to right, transparent, #ffffff99, transparent),
-    linear-gradient(var(--secondary) 0 0);  /* samen met sanne ingevuld */
-
+    linear-gradient(var(--secondary) 0 0);
   background-position: -4rem top, center center;
   background-repeat: no-repeat;
 
@@ -214,7 +225,9 @@ section:first-of-type > h1 {
   }
 }
 
+/*****************/
 /* HET TEKSTVLAK */
+/*****************/
 section:nth-of-type(2) {
   position:relative;
   max-width: 600px;
@@ -242,6 +255,10 @@ section:nth-of-type(2) > div > p:first-of-type {
  margin-bottom:10px !important;
 }
 
+/**********/
+/* SLIDES */
+/**********/
+
 /* SLIDE 1 */
 body > ol > li:nth-of-type(1) {
   background-image: url("../images/nutcracker-world.png"); 
@@ -252,11 +269,11 @@ body > ol > li:nth-of-type(1) {
   width: 340px;
 }
 
-section:first-of-type:hover > img {
+#slide1 > section:first-of-type:hover > img {
 content: url('../images/barbie-nutcracker-2.png');
 }
 
-li:first-of-type > a:first-of-type {
+#slide1 > a:first-of-type {
   visibility: hidden;
 }
 
@@ -278,11 +295,9 @@ body > ol > li:nth-of-type(2) {
   content: url('../images/barbie-rapunzel-2.png');
   }
 
-
 #slide2 > section:nth-of-type(2) > div:first-of-type > img {
   width: 250px;
   }
-
 
 /* SLIDE 3 */
 body > ol > #slide3 {
@@ -339,16 +354,17 @@ body > ol > #slide4 {
   }
 }
 
+/* Bron: Sanne */
 #slide4 > section:nth-of-type(2):hover > img:nth-of-type(2) {
-  translate:1em -8em; /* code sanne */
-  rotate: 360deg; /* code sanne */
+  translate:1em -8em;
+  rotate: 360deg;
 }
-
 
 #slide4 > section:nth-of-type(2) > div:first-of-type > img {
   width: 250px;
   }
 
+/* Nodig voor javascript */
 #slide4 > section:nth-of-type(2) {
 }
 
@@ -358,6 +374,7 @@ body > ol > #slide4 {
   left: 0;
   height: 100%;
   z-index: 10;
+
   transform: translateY(100%);
   transition-duration: 3s;
 }
@@ -395,11 +412,11 @@ body > ol > li:nth-of-type(5) {
   width: 350px;
   }
 
-  #slide5 > section:nth-of-type(2) > div:first-of-type > img {
-    width: 250px;
-    }
+#slide5 > section:nth-of-type(2) > div:first-of-type > img {
+  width: 250px;
+  }
 
-    /* SLIDE 6 */
+/* SLIDE 6 */
 body > ol > li:nth-of-type(6) {
   background-image: url("../images/mermaidia-world.png"); 
 }
@@ -414,24 +431,24 @@ body > ol > li:nth-of-type(6) {
   width: 400px;
   }
 
-  /* SLIDE 7 */
-  body > ol > li:nth-of-type(7) {
-    background-image: url("../images/island-princess-world.png"); 
-  }
-  
-  #slide7 > section:first-of-type > img {
-    position: absolute;
-    width: 360px;
-  }
-  
-  #slide7 > section:first-of-type:hover > img {
-    content: url('../images/barbie-island-princess-2.png');
+/* SLIDE 7 */
+body > ol > li:nth-of-type(7) {
+  background-image: url("../images/island-princess-world.png"); 
+}
+
+#slide7 > section:first-of-type > img {
+  position: absolute;
+  width: 360px;
+}
+
+#slide7 > section:first-of-type:hover > img {
+  content: url('../images/barbie-island-princess-2.png');
+}
+
+#slide7 > section:nth-of-type(2) > div:first-of-type > img {
+  width: 200px;
   }
 
-  #slide7 > section:nth-of-type(2) > div:first-of-type > img {
-    width: 200px;
-    }
-
-    li:last-of-type > a:last-of-type {
-      visibility: hidden;
-    }
+li:last-of-type > a:last-of-type {
+  visibility: hidden;
+}

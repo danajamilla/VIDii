@@ -1,6 +1,4 @@
-// bron:https://codepen.io/tholman/full/jWmZxZ/ - ik snap de code niet maar mag het wel gebruiken van Sanne
-
-
+// Bron:https://codepen.io/tholman/full/jWmZxZ/ - ik snap de code niet maar mag het wel gebruiken van Sanne
 
 (function fairyDustCursor() {
    var possibleColors = ["#fdfa94", "#a18130", "#dfc75d"];
@@ -133,7 +131,7 @@
  
  
 
-// easteregg 
+// Easteregg 
 var textSection = document.querySelector('#slide4 > section:nth-of-type(2)');
 var fire = document.querySelector('.fire');
 var bibble = document.querySelector('.bibble-scream');
@@ -152,7 +150,7 @@ bibble.addEventListener('click', function() {
 });
 
 
-// theme songs
+// Audio
 
 var nutcrackerLinkRight = document.querySelector('#slide1 > a:last-of-type');
 var rapunzelLinkLeft = document.querySelector('#slide2 > a:first-of-type');
@@ -259,7 +257,5 @@ islandPrincessLinkLeft.addEventListener('click', function() {
 islandPrincessLinkRight.addEventListener('click', function() {
   changeSlide(slideIndex + 1);
 });
-
-
 
 
